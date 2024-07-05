@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:t_shirt_app/repository/user_list.dart';
-import 'package:t_shirt_app/widgets/app_design.dart';
+import 'package:t_shirt_app/screens/app_Screen.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -48,7 +48,7 @@ class _LoginPageState extends State<LoginPage> {
     for (var user in registeredUsers) {
       if (user.userName == enteredusername &&
           user.password == enteredpassword) {
-        Navigator.pushReplacement(
+        Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => const AppScreen()),
         );
