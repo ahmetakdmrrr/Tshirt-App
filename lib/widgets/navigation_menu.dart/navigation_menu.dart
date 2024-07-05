@@ -10,8 +10,6 @@ class NavigationMenu extends StatefulWidget {
 class _HomePageState extends State<NavigationMenu> {
   int _selectedIndex = 0;
 
-  
-
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -28,7 +26,7 @@ class _HomePageState extends State<NavigationMenu> {
         destinations: const [
           NavigationDestination(
             icon: Icon(Icons.add),
-            label: 'Ekle',
+            label: 'Add',
           ),
           NavigationDestination(
             icon: Icon(Icons.home),
