@@ -3,7 +3,7 @@ import 'package:t_shirt_app/models/t_shirt.dart';
 final List<Tshirt> registeredTshirt = [
   Tshirt(
     name: 'Cool T-shirt',
-    imagePath: 'assets/t_shirt_1.jpeg',
+    imagePath: 'assets/images/t_shirt_1.jpeg',
     description: 'A cool t-shirt for cool people.',
     price: 19.99,
     size: 'M',
@@ -11,7 +11,7 @@ final List<Tshirt> registeredTshirt = [
   ),
   Tshirt(
     name: 'Stylish T-shirt',
-    imagePath: 'assets/t_shirt_2.jpeg',
+    imagePath: 'assets/images/t_shirt_2.jpg',
     description: 'A stylish t-shirt for fashion lovers.',
     price: 24.99,
     size: 'L',
@@ -19,7 +19,7 @@ final List<Tshirt> registeredTshirt = [
   ),
   Tshirt(
     name: 'Casual T-shirt',
-    imagePath: 'assets/t_shirt_3.jpeg',
+    imagePath: 'assets/images/t_shirt_3.jpeg',
     description: 'A casual t-shirt for everyday wear.',
     price: 15.99,
     size: 'S',

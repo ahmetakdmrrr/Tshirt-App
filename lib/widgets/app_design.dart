@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:t_shirt_app/widgets/menu/menu.dart';
 import 'package:t_shirt_app/widgets/navigation_menu.dart/navigation_menu.dart';
+import 'package:t_shirt_app/widgets/t_shirt_card.dart';
 
 class AppScreen extends StatefulWidget {
   const AppScreen({super.key});
@@ -21,8 +22,7 @@ class _AppScreenState extends State<AppScreen> {
         backgroundColor: Colors.green[200],
       ),
       drawer: const Menu(),
-      body: const NavigationMenu(),
-
+      body: const TshirtCard(),
     );
   }
 }
