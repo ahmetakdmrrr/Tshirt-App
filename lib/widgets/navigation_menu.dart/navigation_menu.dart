@@ -1,35 +1,34 @@
 import 'package:flutter/material.dart';
 
 class NavigationMenu extends StatefulWidget {
-  const NavigationMenu({super.key});
+  final int selectedIndex;
+  final ValueChanged<int> onDestinationSelected;
+
+  const NavigationMenu({
+    required this.selectedIndex,
+    required this.onDestinationSelected,
+    Key? key,
+  }) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => _NavigationMenuState();
+  State<NavigationMenu> createState() => _NavigationMenuState();
 }
 
 class _NavigationMenuState extends State<NavigationMenu> {
-  int _selectedIndex = 0;
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return NavigationBar(
       backgroundColor: const Color.fromARGB(255, 210, 255, 211),
-      selectedIndex: _selectedIndex,
-      onDestinationSelected: _onItemTapped,
+      selectedIndex: widget.selectedIndex,
+      onDestinationSelected: widget.onDestinationSelected,
       destinations: const [
         NavigationDestination(
           icon: Icon(Icons.add),
-          label: 'Add',
+          label: 'Ekle',
         ),
         NavigationDestination(
           icon: Icon(Icons.home),
-          label: 'Home',
+          label: 'Ana Sayfa',
         ),
         NavigationDestination(
           icon: Icon(Icons.shopping_cart),
@@ -37,7 +36,7 @@ class _NavigationMenuState extends State<NavigationMenu> {
         ),
         NavigationDestination(
           icon: Icon(Icons.account_circle),
-          label: 'Profile',
+          label: 'Profil',
         ),
       ],
     );

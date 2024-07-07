@@ -13,6 +13,7 @@ class CartService {
   static void removeToCart(Cart item) {
     cartItems.remove(item);
   }
+  
 
   static List<Cart> getCart() {
     return cartItems;

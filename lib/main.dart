@@ -12,9 +12,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-        "/":(BuildContext context) =>const AppScreen(),
-        "/login":(BuildContext context) =>const LoginPage(),
-        "/sepet":(BuildContext context) =>const CartScreen(),
+        "/": (BuildContext context) => const AppScreen(),
+        "/login": (BuildContext context) => const LoginPage(),
+        "/sepet": (BuildContext context) => const CartScreen(),
       },
       initialRoute: "/login",
     );
