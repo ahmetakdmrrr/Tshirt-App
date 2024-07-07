@@ -60,7 +60,7 @@ class _CartScreenState extends State<CartScreen> {
             title: Text(cart[index].tshirt.name),
             subtitle: Text('${cart[index].tshirt.price} TL'),
             trailing: IconButton(
-              icon: const Icon(Icons.remove_shopping_cart),
+              icon: const Icon(Icons.highlight_remove),
               onPressed: () {
                 cartBloc.removeFromCart(cart[index]);
                 setState(() {}); // Ekranı güncelle

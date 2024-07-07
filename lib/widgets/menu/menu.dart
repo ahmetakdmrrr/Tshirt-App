@@ -20,54 +20,40 @@ class _MenuState extends State<Menu> {
           ListTile(
               title: const Row(
                 children: [
-                  Icon(Icons.home, color: Colors.black),
-                  SizedBox(
-                    width: 15,
-                  ),
-                  Text(
-                    'Home',
-                    style: TextStyle(fontSize: 20, color: Colors.black),
-                  )
-                ],
-              ),
-              onTap: () {}),
-          ListTile(
-              title: const Row(
-                children: [
-                  Icon(Icons.list_alt, color: Colors.black),
-                  SizedBox(
-                    width: 15,
-                  ),
-                  Text(
-                    'Ürünler',
-                    style: TextStyle(fontSize: 20, color: Colors.black),
-                  )
-                ],
-              ),
-              onTap: () {}),
-          ListTile(
-              title: const Row(
-                children: [
-                  Icon(Icons.account_box, color: Colors.black),
-                  SizedBox(
-                    width: 15,
-                  ),
-                  Text(
-                    'Hesabım',
-                    style: TextStyle(fontSize: 20, color: Colors.black),
-                  )
-                ],
-              ),
-              onTap: () {}),
-          ListTile(
-              title: const Row(
-                children: [
                   Icon(Icons.settings, color: Colors.black),
                   SizedBox(
                     width: 15,
                   ),
                   Text(
                     'Ayarlar',
+                    style: TextStyle(fontSize: 20, color: Colors.black),
+                  )
+                ],
+              ),
+              onTap: () {}),
+          ListTile(
+              title: const Row(
+                children: [
+                  Icon(Icons.contact_mail_rounded, color: Colors.black),
+                  SizedBox(
+                    width: 15,
+                  ),
+                  Text(
+                    'İletişim',
+                    style: TextStyle(fontSize: 20, color: Colors.black),
+                  )
+                ],
+              ),
+              onTap: () {}),
+          ListTile(
+              title: const Row(
+                children: [
+                  Icon(Icons.all_inbox_outlined, color: Colors.black),
+                  SizedBox(
+                    width: 15,
+                  ),
+                  Text(
+                    'Hakkımızda',
                     style: TextStyle(fontSize: 20, color: Colors.black),
                   )
                 ],

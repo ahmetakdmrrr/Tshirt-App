@@ -82,6 +82,9 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            const SizedBox(
+              height: 20,
+            ),
             TextField(
               controller: _userNameController,
               keyboardType: TextInputType.text,
@@ -117,11 +120,18 @@ class _LoginPageState extends State<LoginPage> {
             ElevatedButton(
               onPressed: loginControl,
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color.fromARGB(255, 116, 28, 132),
+                backgroundColor: Colors.green[300],
               ),
               child: const Text(
                 'Giriş yap',
-                style: TextStyle(fontSize: 15, color: Colors.white),
+                style: TextStyle(fontSize: 20, color: Colors.white),
+              ),
+            ),
+            TextButton(
+              onPressed: () {},
+              child: const Text(
+                'Giriş yapamıyor musunuz?',
+                style: TextStyle(color: Colors.grey),
               ),
             ),
           ],
