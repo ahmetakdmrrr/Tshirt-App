@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:t_shirt_app/screens/cart_screen.dart';
+import 'package:t_shirt_app/screens/profile_screen.dart';
 import 'package:t_shirt_app/widgets/menu/menu.dart';
 import 'package:t_shirt_app/widgets/t_shirt_card.dart';
 import 'package:t_shirt_app/widgets/navigation_menu.dart/navigation_menu.dart';
@@ -29,7 +30,7 @@ class _AppScreenState extends State<AppScreen> {
       case 2:
         return const CartScreen(); // 'Sepet' ekranı
       case 3:
-        return const Text('a'); // 'Profil' ekranı
+        return const Profile(); // 'Profil' ekranı
       default:
         return const Text('a'); // Varsayılan ekran
     }

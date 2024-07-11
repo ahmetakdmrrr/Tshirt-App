@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:t_shirt_app/repository/user_list.dart';
+import 'package:t_shirt_app/blocs/user_bloc.dart';
+import 'package:t_shirt_app/repository/user_service.dart';
 import 'package:t_shirt_app/screens/app_Screen.dart';
 
 class LoginPage extends StatefulWidget {
@@ -10,6 +11,8 @@ class LoginPage extends StatefulWidget {
     return _LoginPageState();
   }
 }
+
+final state = UserBloc.getAll();
 
 class _LoginPageState extends State<LoginPage> {
   final _userNameController = TextEditingController();
@@ -45,12 +48,14 @@ class _LoginPageState extends State<LoginPage> {
       return;
     }
 
-    for (var user in registeredUsers) {
+    for (var user in state) {
       if (user.userName == enteredusername &&
           user.password == enteredpassword) {
+        UserService.selectedUser = user;
+
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const AppScreen()),
+          MaterialPageRoute(builder: (context) => AppScreen()),
         );
         return;
       }
