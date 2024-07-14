@@ -13,9 +13,9 @@ class UserService {
         surName: 'akdemir',
         date: DateTime.now(),
         cinsiyet: 'Erkek',
-        email: 'ahmet145@hotmail.com',
+        email: 'ahmet1456@hotmail.com',
         password: '123456',
-        phone: '5537879681',
+        phone: '5055555555',
         userName: 'ahmet_akdmrrr',
       ),
     );
@@ -25,9 +25,9 @@ class UserService {
         surName: 'Akdemir',
         date: DateTime.now(),
         cinsiyet: 'Erkek',
-        email: 'ahmet123@hotmail.com',
+        email: 'ahmet187@hotmail.com',
         password: '01Aakdemir',
-        phone: '5537879681',
+        phone: '5055555555',
         userName: 'ahmet_akdmrrr',
       ),
     );
@@ -39,7 +39,7 @@ class UserService {
         cinsiyet: 'Erkek',
         email: 'ahmet145@hotmail.com',
         password: '753951',
-        phone: '5537879681',
+        phone: '5055555555',
         userName: 'ahmet_akdmrrr',
       ),
     );

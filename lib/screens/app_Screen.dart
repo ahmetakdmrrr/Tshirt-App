@@ -45,15 +45,8 @@ class _AppScreenState extends State<AppScreen> {
         backgroundColor: Colors.green[200],
       ),
       drawer: const Menu(),
-      body: Column(
-        children: [
-          const SizedBox(height: 20), // Üst kısımdan boşluk bırakmak için
-          Expanded(
-            child: Center(
-              child: _selectedScreen(), // Seçilen ekranı göster
-            ),
-          ),
-        ],
+      body: Center(
+        child: _selectedScreen(), // Seçilen ekranı göster
       ),
       bottomNavigationBar: NavigationMenu(
         selectedIndex: _selectedIndex,
