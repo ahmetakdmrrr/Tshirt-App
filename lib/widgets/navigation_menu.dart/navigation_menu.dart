@@ -7,8 +7,8 @@ class NavigationMenu extends StatefulWidget {
   const NavigationMenu({
     required this.selectedIndex,
     required this.onDestinationSelected,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   State<NavigationMenu> createState() => _NavigationMenuState();

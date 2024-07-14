@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:t_shirt_app/screens/about_us_Screen.dart';
 import 'package:t_shirt_app/screens/login_screen.dart';
 
 class Menu extends StatefulWidget {
@@ -58,7 +59,12 @@ class _MenuState extends State<Menu> {
                   )
                 ],
               ),
-              onTap: () {}),
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const AboutUs()),
+                );
+              }),
           ListTile(
               title: const Row(
                 children: [
@@ -73,10 +79,27 @@ class _MenuState extends State<Menu> {
                 ],
               ),
               onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => const LoginPage()),
-                );
+                showDialog(
+                    context: context,
+                    builder: (BuildContext context) => AlertDialog(
+                          title: const Text('Çıkış yap ?'),
+                          content: const Text(
+                              'Çıkış yapmak istediğinize emin misiniz ?'),
+                          actions: [
+                            TextButton(
+                              onPressed: () => Navigator.pop(context, 'Cancel'),
+                              child: const Text('Cancel'),
+                            ),
+                            TextButton(
+                              onPressed: () => Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const LoginPage()),
+                              ),
+                              child: const Text('OK'),
+                            ),
+                          ],
+                        ));
               }),
         ],
       ),

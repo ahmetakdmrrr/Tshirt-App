@@ -21,7 +21,7 @@ class _ProfileState extends State<Profile> {
           // Üst kısım (ilk renk)
           Container(
               height: 70, // AppBar yüksekliği kadar
-              color: Color.fromARGB(255, 255, 255, 255)),
+              color:const  Color.fromARGB(255, 255, 255, 255)),
           // İkinci renk (alt kısım)
           Container(
             margin:
@@ -42,7 +42,7 @@ class _ProfileState extends State<Profile> {
                       "Ad Soyad",
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
-                    subtitle: Text(user.name + " " + user.surName),
+                    subtitle: Text("${user.name} ${user.surName}"),
                     tileColor: const Color.fromARGB(255, 87, 61, 52),
                     leading: const Icon(Icons.person_2, color: Colors.white),
                     textColor: Colors.white, // Yazı rengi
