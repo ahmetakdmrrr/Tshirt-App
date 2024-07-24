@@ -27,7 +27,7 @@ class _AppScreenState extends State<AppScreen> {
       case 0:
         return const Text('ahmet'); // 'Ekle' ekranı
       case 1:
-        return const TshirtCard(); // 'Ana Sayfa' ekranı
+        return  TshirtCard(); // 'Ana Sayfa' ekranı
       case 2:
         return const CartScreen(); // 'Sepet' ekranı
       case 3:

@@ -1,17 +1,33 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:t_shirt_app/blocs/t_shirt_bloc.dart';
 import 'package:t_shirt_app/blocs/cart_bloc.dart';
+import 'package:t_shirt_app/data.api/t_shirt_api.dart';
 import 'package:t_shirt_app/models/cart.dart';
+import 'package:t_shirt_app/models/t_shirt.dart';
 
-class TshirtCard extends StatelessWidget {
+class TshirtCard extends StatefulWidget {
   const TshirtCard({super.key});
+
+  @override
+  TshirtCardState createState() => TshirtCardState();
+}
+
+class TshirtCardState extends State<TshirtCard> {
+  List<Tshirt> products = []; // `product` yerine `products` olarak değiştirdik
+
+  @override
+  void initState() {
+    super.initState();
+    getCategoriesFromApi();
+  }
 
   @override
   Widget build(BuildContext context) {
     return buildProductList();
   }
 
-  buildProductList() {
+  Widget buildProductList() {
     return StreamBuilder(
       initialData: TshirtBloc.getAll(),
       stream: TshirtBloc.getStream,
@@ -21,12 +37,13 @@ class TshirtCard extends StatelessWidget {
             child: Text('Veri yok'),
           );
         }
-        return buildProductListItems(snapshot);
+        products = snapshot.data; // `products` listesini güncelliyoruz
+        return buildProductListItems();
       },
     );
   }
 
-  buildProductListItems(AsyncSnapshot snapshot) {
+  Widget buildProductListItems() {
     return GridView.builder(
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
@@ -34,10 +51,10 @@ class TshirtCard extends StatelessWidget {
         crossAxisSpacing: 10.0,
         childAspectRatio: 0.75,
       ),
-      itemCount: snapshot.data.length,
+      itemCount: products.length,
       itemBuilder: (context, index) {
         String buttonText = "Sepete Ekle";
-        var list = snapshot.data;
+        var list = products; // `products` listesini kullanıyoruz
         return Card(
           elevation: 5,
           child: InkWell(
@@ -53,7 +70,7 @@ class TshirtCard extends StatelessWidget {
                         onPressed: () {
                           Navigator.pop(context);
                         },
-                        child: const Text('Okay'),
+                        child: const Text('Tamam'),
                       ),
                     ],
                   );
@@ -87,7 +104,8 @@ class TshirtCard extends StatelessWidget {
                       minimumSize: const Size(0, 35),
                       backgroundColor: const Color.fromARGB(255, 196, 219, 197),
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20)),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
                     ),
                     child: Text(
                       buttonText,
@@ -104,5 +122,22 @@ class TshirtCard extends StatelessWidget {
         );
       },
     );
+  }
+
+  void getCategoriesFromApi() {
+    TshirtsApi.getproduct().then((response) {
+      if (response.statusCode == 200) {
+        setState(() {
+          List<dynamic> jsonList = jsonDecode(response.body);
+          products = jsonList.map((json) => Tshirt.fromjson(json)).toList(); // Model sınıfından nesneler oluşturulmuş
+        });
+      } else {
+        // Hata yönetimi
+        print('API çağrısı başarısız oldu: ${response.statusCode}');
+      }
+    }).catchError((error) {
+      // Hata yönetimi
+      print('API çağrısında hata oluştu: $error');
+    });
   }
 }
