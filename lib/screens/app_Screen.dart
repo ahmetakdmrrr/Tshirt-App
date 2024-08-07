@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:t_shirt_app/screens/about_us_Screen.dart';
 import 'package:t_shirt_app/screens/cart_screen.dart';
-import 'package:t_shirt_app/screens/login_screen.dart';
 import 'package:t_shirt_app/screens/profile_screen.dart';
-import 'package:t_shirt_app/screens/settings_screen.dart';
 import 'package:t_shirt_app/widgets/menu/menu.dart';
 import 'package:t_shirt_app/widgets/navigation_menu.dart/navigation_menu.dart';
 import 'package:t_shirt_app/widgets/t_shirt_card.dart';
