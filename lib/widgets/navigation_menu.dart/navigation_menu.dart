@@ -17,25 +17,28 @@ class NavigationMenu extends StatefulWidget {
 class _NavigationMenuState extends State<NavigationMenu> {
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return NavigationBar(
-      backgroundColor: const Color.fromARGB(255, 210, 255, 211),
+      backgroundColor: theme.colorScheme.background,
       selectedIndex: widget.selectedIndex,
       onDestinationSelected: widget.onDestinationSelected,
-      destinations: const [
+      destinations: [
         NavigationDestination(
-          icon: Icon(Icons.add),
+          icon: Icon(Icons.add, color: theme.colorScheme.primary),
           label: 'Ekle',
         ),
         NavigationDestination(
-          icon: Icon(Icons.home),
+          icon: Icon(Icons.home, color: theme.colorScheme.onBackground),
           label: 'Ana Sayfa',
         ),
         NavigationDestination(
-          icon: Icon(Icons.shopping_cart),
+          icon: Icon(Icons.shopping_cart, color: theme.iconTheme.color),
           label: 'Sepet',
         ),
         NavigationDestination(
-          icon: Icon(Icons.account_circle),
+          icon:
+              Icon(Icons.account_circle, color: theme.colorScheme.onBackground),
           label: 'Profil',
         ),
       ],

@@ -1,106 +1,112 @@
 import 'package:flutter/material.dart';
 import 'package:t_shirt_app/screens/about_us_Screen.dart';
 import 'package:t_shirt_app/screens/login_screen.dart';
+import 'package:t_shirt_app/screens/settings_screen.dart';
 
-class Menu extends StatefulWidget {
+class Menu extends StatelessWidget {
   const Menu({super.key});
-  @override
-  State<StatefulWidget> createState() {
-    return _MenuState();
-  }
-}
 
-class _MenuState extends State<Menu> {
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
+    final isDarkMode = theme.brightness == Brightness.dark;
+    final textColor = isDarkMode
+        ? theme.colorScheme.onBackground
+        : theme.colorScheme.onSurface;
+    final iconColor =
+        isDarkMode ? theme.colorScheme.onBackground : theme.colorScheme.primary;
+    final tileColor =
+        isDarkMode ? theme.colorScheme.surface : theme.colorScheme.background;
+
     return Drawer(
+      backgroundColor: theme.colorScheme.background,
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
           const Padding(padding: EdgeInsets.symmetric(vertical: 25)),
           ListTile(
-              title: const Row(
-                children: [
-                  Icon(Icons.settings, color: Colors.black),
-                  SizedBox(
-                    width: 15,
-                  ),
-                  Text(
-                    'Ayarlar',
-                    style: TextStyle(fontSize: 20, color: Colors.black),
-                  )
-                ],
+            tileColor: tileColor,
+            leading: Icon(Icons.settings, color: iconColor),
+            title: Text(
+              'Ayarlar',
+              style: TextStyle(
+                fontSize: 20,
+                color: textColor,
               ),
-              onTap: () {}),
+            ),
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (ctx) => const SettingsScreen(),
+                ),
+              );
+            },
+          ),
           ListTile(
-              title: const Row(
-                children: [
-                  Icon(Icons.contact_mail_rounded, color: Colors.black),
-                  SizedBox(
-                    width: 15,
-                  ),
-                  Text(
-                    'İletişim',
-                    style: TextStyle(fontSize: 20, color: Colors.black),
-                  )
-                ],
+            tileColor: tileColor,
+            leading: Icon(Icons.contact_mail_rounded, color: iconColor),
+            title: Text(
+              'iletis im',
+              style: TextStyle(
+                fontSize: 20,
+                color: textColor,
               ),
-              onTap: () {}),
+            ),
+            onTap: () {},
+          ),
           ListTile(
-              title: const Row(
-                children: [
-                  Icon(Icons.all_inbox_outlined, color: Colors.black),
-                  SizedBox(
-                    width: 15,
-                  ),
-                  Text(
-                    'Hakkımızda',
-                    style: TextStyle(fontSize: 20, color: Colors.black),
-                  )
-                ],
+            tileColor: tileColor,
+            leading: Icon(Icons.all_inbox_outlined, color: iconColor),
+            title: Text(
+              'Hakkımızda',
+              style: TextStyle(
+                fontSize: 20,
+                color: textColor,
               ),
-              onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => const AboutUs()),
-                );
-              }),
+            ),
+            onTap: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const AboutUs()),
+              );
+            },
+          ),
           ListTile(
-              title: const Row(
-                children: [
-                  Icon(Icons.logout_sharp, color: Colors.black),
-                  SizedBox(
-                    width: 15,
-                  ),
-                  Text(
-                    'Çıkış yap',
-                    style: TextStyle(fontSize: 20, color: Colors.black),
-                  )
-                ],
+            tileColor: tileColor,
+            leading: Icon(Icons.logout_sharp, color: iconColor),
+            title: Text(
+              'Çıkıs yap',
+              style: TextStyle(
+                fontSize: 20,
+                color: textColor,
               ),
-              onTap: () {
-                showDialog(
-                    context: context,
-                    builder: (BuildContext context) => AlertDialog(
-                          title: const Text('Çıkış yap ?'),
-                          content: const Text(
-                              'Çıkış yapmak istediğinize emin misiniz ?'),
-                          actions: [
-                            TextButton(
-                              onPressed: () => Navigator.pop(context, 'Cancel'),
-                              child: const Text('Cancel'),
-                            ),
-                            TextButton(
-                              onPressed: () => Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const LoginPage()),
-                              ),
-                              child: const Text('OK'),
-                            ),
-                          ],
-                        ));
-              }),
+            ),
+            onTap: () {
+              showDialog(
+                context: context,
+                builder: (BuildContext context) => AlertDialog(
+                  title: const Text('Çıkış yap ?'),
+                  content:
+                      const Text('Çıkış yapmak istediğinize emin misiniz ?'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(context, 'Cancel'),
+                      child: const Text('Cancel'),
+                    ),
+                    TextButton(
+                      onPressed: () => Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const LoginPage()),
+                      ),
+                      child: const Text('OK'),
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
         ],
       ),
     );

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:t_shirt_app/screens/about_us_Screen.dart';
 import 'package:t_shirt_app/screens/cart_screen.dart';
+import 'package:t_shirt_app/screens/login_screen.dart';
 import 'package:t_shirt_app/screens/profile_screen.dart';
+import 'package:t_shirt_app/screens/settings_screen.dart';
 import 'package:t_shirt_app/widgets/menu/menu.dart';
-import 'package:t_shirt_app/widgets/t_shirt_card.dart';
 import 'package:t_shirt_app/widgets/navigation_menu.dart/navigation_menu.dart';
+import 'package:t_shirt_app/widgets/t_shirt_card.dart';
 
 class AppScreen extends StatefulWidget {
   const AppScreen({super.key});
@@ -25,27 +27,30 @@ class _AppScreenState extends State<AppScreen> {
   Widget _selectedScreen() {
     switch (_selectedIndex) {
       case 0:
-        return const Text('ahmet'); // 'Ekle' ekranı
+        return const Text('Ekle'); // 'Ekle' ekranı
       case 1:
-        return  TshirtCard(); // 'Ana Sayfa' ekranı
+        return const TshirtCard(); // 'Ana Sayfa' ekranı
       case 2:
         return const CartScreen(); // 'Sepet' ekranı
       case 3:
-        return const Profile();
+        return const Profile(); // 'Profil' ekranı
       case 4:
-        return const AboutUs();
+        return const AboutUs(); // 'Hakkımızda' ekranı
       default:
-        return const Text('a'); // Varsayılan ekran
+        return const Text('Varsayılan Ekran'); // Varsayılan ekran
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Tişört Mağazam'),
+        title: const Text('T-shirt app'),
         centerTitle: true,
-        backgroundColor: Colors.green[200],
+        backgroundColor: theme
+            .colorScheme.primaryContainer, // Temanın arka plan rengini kullan
       ),
       drawer: const Menu(),
       body: Center(
