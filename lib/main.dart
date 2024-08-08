@@ -4,9 +4,12 @@ import 'package:t_shirt_app/blocs/theme_bloc.dart';
 import 'package:t_shirt_app/screens/app_screen.dart';
 import 'package:t_shirt_app/screens/login_screen.dart';
 import 'package:t_shirt_app/screens/cart_screen.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ProviderScope(
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {

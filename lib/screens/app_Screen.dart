@@ -4,7 +4,7 @@ import 'package:t_shirt_app/screens/cart_screen.dart';
 import 'package:t_shirt_app/screens/profile_screen.dart';
 import 'package:t_shirt_app/widgets/menu/menu.dart';
 import 'package:t_shirt_app/widgets/navigation_menu.dart/navigation_menu.dart';
-import 'package:t_shirt_app/widgets/t_shirt_card.dart';
+import 'package:t_shirt_app/screens/t_shirt_card.dart';
 
 class AppScreen extends StatefulWidget {
   const AppScreen({super.key});
