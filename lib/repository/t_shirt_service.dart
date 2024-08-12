@@ -5,7 +5,10 @@ class TshirtService {
   static final TshirtService _singleton = TshirtService._internal();
   factory TshirtService() => _singleton;
   TshirtService._internal();
+
+  // Bu metod, örnek verileri sağlayarak tshirts listesini doldurur.
   static List<Tshirt> getAll() {
+    // Listeye t-shirt örnekleri ekliyoruz.
     tshirts.add(
       Tshirt(
         name: 'Cool T-shirt',
@@ -23,7 +26,7 @@ class TshirtService {
         description: 'A stylish t-shirt for fashion lovers.',
         price: 24.99,
         size: 'L',
-        color: ['White', 'black', 'yellow'],
+        color: ['white', 'black', 'yellow'],
       ),
     );
     tshirts.add(
@@ -33,11 +36,20 @@ class TshirtService {
         description: 'A casual t-shirt for everyday wear.',
         price: 15.99,
         size: 'S',
-        color: ['black', 'Blue', 'yellow'],
+        color: ['black', 'blue', 'yellow'],
       ),
     );
+    tshirts.add(
+      Tshirt(
+        name: 'Casual T-shirt',
+        imagePath: 'assets/images/t_shirt_4.jpg',
+        description: 'A casual t-shirt for everyday wear.',
+        price: 15.99,
+        size: 'S',
+        color: ['black', 'blue', 'yellow'],
+      ),
+    );
+    
     return tshirts;
   }
 }
-
-

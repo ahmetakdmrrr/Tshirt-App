@@ -34,7 +34,7 @@ class _LoginPageState extends State<LoginPage> {
         context: context,
         builder: (ctx) => AlertDialog(
           title: const Text('Hata'),
-          content: const Text('Lütfen boş kısımları doldurunuz'),
+          content: const Text('Lütfen bos kısımları doldurunuz'),
           actions: [
             TextButton(
               onPressed: () {
@@ -110,7 +110,7 @@ class _LoginPageState extends State<LoginPage> {
               maxLength: 50,
               decoration: InputDecoration(
                 prefixIcon: const Icon(Icons.password),
-                hintText: 'Şifre',
+                hintText: 'Sifre',
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(15),
                 ),
@@ -128,14 +128,14 @@ class _LoginPageState extends State<LoginPage> {
                 backgroundColor: Colors.green[300],
               ),
               child: const Text(
-                'Giriş yap',
+                'Giris yap',
                 style: TextStyle(fontSize: 20, color: Colors.white),
               ),
             ),
             TextButton(
               onPressed: () {},
               child: const Text(
-                'Giriş yapamıyor musunuz?',
+                'Giris yapamıyor musunuz?',
                 style: TextStyle(color: Colors.grey),
               ),
             ),

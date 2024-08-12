@@ -77,6 +77,11 @@ flutter:
   - assets/images/t_shirt_2.jpg
   - assets/images/t_shirt_3.jpeg
   - assets/images/ak_design.png
+  - assets/images/akses.jpg
+  - assets/images/dress.jpg
+  - assets/images/pantolon.jpg
+  - assets/images/t_shirt_4.jpg
+  - assets/images/shoes.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

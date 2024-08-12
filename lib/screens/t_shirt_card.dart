@@ -7,6 +7,7 @@ import 'package:t_shirt_app/data.api/t_shirt_api.dart';
 import 'package:t_shirt_app/models/cart.dart';
 import 'package:t_shirt_app/models/t_shirt.dart';
 import 'package:t_shirt_app/providers/tshirt_provider.dart';
+import 'package:t_shirt_app/screens/t_shirt_detail.dart';
 
 class TshirtCard extends ConsumerStatefulWidget {
   const TshirtCard({super.key});
@@ -39,7 +40,7 @@ class TshirtCardState extends ConsumerState<TshirtCard> {
             child: Text('Veri yok'),
           );
         }
-        products = snapshot.data; 
+        products = snapshot.data;
         return buildProductListItems();
       },
     );
@@ -56,7 +57,7 @@ class TshirtCardState extends ConsumerState<TshirtCard> {
       itemCount: products.length,
       itemBuilder: (context, index) {
         String buttonText = "Sepete Ekle";
-        var list = products; 
+        var list = products;
         final isFavorite = ref
             .watch(favoriteTshirtProvider)
             .contains(list[index]); // Favori olup olmadığını kontrol ediyoruz
@@ -65,31 +66,24 @@ class TshirtCardState extends ConsumerState<TshirtCard> {
           elevation: 5,
           child: InkWell(
             onTap: () {
-              showDialog(
-                context: context,
-                builder: (context) {
-                  return AlertDialog(
-                    title: Text(list[index].name),
-                    content: Text(list[index].description),
-                    actions: [
-                      TextButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        child: const Text('Tamam'),
-                      ),
-                    ],
-                  );
-                },
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (ctx) => TShirtDetailScreen(
+                    tshirt: list[index],
+                  ),
+                ),
               );
             },
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Image.asset(
-                  list[index].imagePath,
-                  fit: BoxFit.cover,
-                  height: 150,
+                Hero(
+                  tag: list[index].id,
+                  child: Image.asset(
+                    list[index].imagePath,
+                    fit: BoxFit.cover,
+                    height: 150,
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -159,9 +153,7 @@ class TshirtCardState extends ConsumerState<TshirtCard> {
       if (response.statusCode == 200) {
         setState(() {
           List<dynamic> jsonList = jsonDecode(response.body);
-          products = jsonList
-              .map((json) => Tshirt.fromjson(json))
-              .toList(); // 
+          products = jsonList.map((json) => Tshirt.fromjson(json)).toList(); //
         });
       } else {
         // Hata yönetimi

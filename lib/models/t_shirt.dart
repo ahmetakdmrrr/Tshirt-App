@@ -1,5 +1,6 @@
 import 'package:uuid/uuid.dart';
 
+
 const uuid = Uuid();
 
 class Tshirt {
@@ -20,16 +21,17 @@ class Tshirt {
   late String size;
   late List<String> color;
 
-  Tshirt.fromjson(Map json) {
+  Tshirt.fromjson(Map<String, dynamic> json) {
     id = json["id"];
     name = json['name'];
     price = json['price'];
     imagePath = json['imagePath'];
     description = json['description'];
     size = json['size'];
-    color = json['color'];
+    color = List<String>.from(json['color']);
   }
-  Map json() {
+
+  Map<String, dynamic> toJson() {
     return {
       "id": id,
       "name": name,
