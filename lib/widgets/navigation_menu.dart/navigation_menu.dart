@@ -25,8 +25,8 @@ class _NavigationMenuState extends State<NavigationMenu> {
       onDestinationSelected: widget.onDestinationSelected,
       destinations: [
         NavigationDestination(
-          icon: Icon(Icons.add, color: theme.colorScheme.primary),
-          label: 'Ekle',
+          icon: Icon(Icons.favorite_border , color: theme.colorScheme.primary),
+          label: 'favorilerim',
         ),
         NavigationDestination(
           icon: Icon(Icons.home, color: theme.colorScheme.onBackground),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:t_shirt_app/screens/about_us_Screen.dart';
 import 'package:t_shirt_app/screens/cart_screen.dart';
+import 'package:t_shirt_app/screens/favorite_screen.dart';
 import 'package:t_shirt_app/screens/profile_screen.dart';
 import 'package:t_shirt_app/widgets/menu/menu.dart';
 import 'package:t_shirt_app/widgets/navigation_menu.dart/navigation_menu.dart';
@@ -25,7 +26,7 @@ class _AppScreenState extends State<AppScreen> {
   Widget _selectedScreen() {
     switch (_selectedIndex) {
       case 0:
-        return const Text('Ekle'); // 'Ekle' ekranı
+        return const FavoriteScreen(); // 'Ekle' ekranı
       case 1:
         return const TshirtCard(); // 'Ana Sayfa' ekranı
       case 2:

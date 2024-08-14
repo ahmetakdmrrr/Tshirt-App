@@ -14,6 +14,10 @@ class FavoriteTshirtNotifier extends StateNotifier<List<Tshirt>> {
       return true;
     }
   }
+
+  List<Tshirt> favoriteProduct() {
+    return state;
+  }
 }
 
 final favoriteTshirtProvider =
